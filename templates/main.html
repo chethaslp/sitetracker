@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <title>Site Tracker</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" crossorigin="anonymous">
+</head>
+<body>
+    <main style="display: flex; height: 100vh;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+          <span class="fs-4">Site Tracker &nbsp;<i class="fa fa-history"></i></span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link active"id="cp0">
+            <i class="fa fa-gear fa-spin" id="ic0"></i>&nbsp;
+              Select CheckArea
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link disabled" id="cp1">
+                <i class="fa fa-circle-o" id="ic1"></i>&nbsp;
+                Select Title
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link disabled" id="cp2">
+              <i class="fa fa-circle-o" id="ic2"></i>&nbsp;
+              Select Changable unit
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link disabled" id="cp3">
+                <i class="fa fa-circle-o" id="ic3"></i>&nbsp;
+              Products
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link disabled" id="cp4">
+                <i class="fa fa-circle-o" id="ic4"></i>&nbsp;
+              Customers
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <div class="mb-3">
+            <label for="" class="form-label">URL</label>
+            <input type="url" class="form-control" name="url" id="url" value="{{s}}">
+            <small id="emailHelpId" class="form-text text-muted">Made with ❤ by <a  target="_blank" href="https://github.com/chethaslp">CLP</a>.</small>
+        </div>
+        <!-- <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>mdo</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div> -->
+      </div>
+      
+    <div class="card" style="height: 100%; width: 100%;" >
+        <div class="card-body">
+            <!-- /site?s=https%3A%2F%2Fwww.cee.kerala.gov.in%2Fkeam2023%2Fnotification -->
+            <iframe height="100%" width="100%" title="df" id="vp" src="/site?s=https%3A%2F%2Fwww.cee.kerala.gov.in%2Fkeam2023%2Fnotification"></iframe>
+        </div>
+    </div>
+</main>
+
+
+<div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitleId">Confirm Viewport?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                The Section you have clicked will be used as the observable area for scraping. Continue?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="cfn()">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+<script src="{{url_for('static',filename='js/main.js')}}"></script>
+</body>
+</html>
