@@ -9,6 +9,26 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+
+  <div class="modal fade" id="modal-ss" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitleId">Site Added!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          The site has been added to our checklist. Now, any changes found in the site will be emailed to:<br>
+          <div class="d-flex mt-2"><span class="rounded text-center btn-primary flex-fill p-1" id="user-email"> mbdfdm@gmail.com </span></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Okay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
     <div class="logo-bar">
         <h3 class="text-white"><i class="fa fa-history"></i>  Site Tracker </h3>
     </div>
@@ -20,8 +40,8 @@
           &nbsp;&nbsp;&nbsp;<strong id="user-id">Signin</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li><hr class="dropdown-divider"></li>
+          <!-- <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><hr class="dropdown-divider"></li> -->
           <li>
             <a class="dropdown-item" style="display: none;" href="#" id="user-signout">Sign out</a>
             <a id="user-signin" class="dropdown-item" href="#" style="text-transform:none">
@@ -32,7 +52,7 @@
         </ul>
       </div></div>
     <div class="container">
-        <form class="dsv">
+        <div class="dsv">
         <div class="mb-3">
           <label for="" class="text-white form-label"><i>Enter the website's URL to track</i></label>
           <div class="form-group" style="display: flex;">
@@ -42,10 +62,12 @@
             </div>
           </div>
         <div >
-            <small id="emailHelpId" style="color: #afbdc9;">If any changes are observed in the site, you will get an email to the registered account with the contents changed.</small>
+            <small id="emailHelpId" style="color: #afbdc9;">
+              Use protocols(http:// or https://) in the url.<br>
+              If any changes are observed in the site, you will get an email to the registered account with the contents changed. Websites will be checked every 1 hour.</small>
           </div>
         </div>
-    </form>
+      </div>
 <br><br>
 
     <div class="card dsv text-white hist-bar-cnt hidden" style="padding: 0%;">
@@ -78,42 +100,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="modal fade modal-ss" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Site Added!</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            
-          </div>
-           
-        </div>
-      </div>
-    </div>
-    
-    
-    <div class="modal fade" id="modal-ss" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalTitleId">Site Added!</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            The site has been added to our checklist. Now, any changes found in the site will be emailed to:<br>
-            <div class="d-flex mt-2"><span class="rounded text-center btn-primary flex-fill p-1" id="user-email"> mbdfdm@gmail.com </span></div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Okay</button>
-          </div>
-        </div>
-      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

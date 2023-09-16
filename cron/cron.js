@@ -1,5 +1,5 @@
 import { initializeApp,deleteApp } from 'firebase/app';
-import { getDatabase, ref, child, set, get, goOffline } from "firebase/database";
+import { getDatabase, ref, child, set, get, remove, goOffline } from "firebase/database";
 import { createTransport }  from 'nodemailer';
 import axios from "axios";
 
@@ -34,10 +34,9 @@ const timerObj = setTimeout(() => {
 const resolveState = (a) => {
   if(a) s += 1;
   else s -= 1;
-  console.log(s)
+
   if(s==0){
     setImmediate(() => {
-      console.log("St");
       timerObj.ref();
     });
   }else{
@@ -113,7 +112,7 @@ const resolveState = (a) => {
             tr.sendMail(mailOptions, function(error, info){
               resolveState(0);
               if (error) {
-                console.log(error);
+                console.log("Email NOT sent: " + error.code);
               } else {
                 console.log('Email sent [CHANGED]: ' + mailOptions.to + ' : '+ cs.val().url);
               }
@@ -157,8 +156,10 @@ const addSite = (cs) => {
 
     })
     .catch(error => {
-      console.log(error);
-//  IMPLEMENT DELETE SITE FROM DB
+      console.log("ERROR: " + error.code + " : " + error.config.url);
+
+      resolveState(1);
+      remove(child(db,cs.key)).then(()=>{resolveState(0);});
       var mailOptions = {
         from: 'Test',
         to: d.email,

@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
 import { getAuth, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-import { getDatabase, ref, push, get, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+import { getDatabase, ref, push, get, query, orderByChild, equalTo, remove } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
 import "https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js";
 import "https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js";
 import showtimeago from "./showtimeago.js";
@@ -106,7 +106,6 @@ $("#btn-track").click(function (e) {
             if ((c.status == 200) || (c.status == 0)) {
                 $("#alrt-url").text(url);
                 $("#user-email").html(user.email);
-                $("#alrt-ss").alert();
                 md_ss.show();
     
                 push(ref(db, 'sitetracker/sites/'), {
@@ -119,7 +118,6 @@ $("#btn-track").click(function (e) {
                 $("#inp-url").addClass("is-invalid");
                 $(".dsv").addClass("shake");
                 $("#alrt-url").text(url);
-                $("#alrt-er").alert();
                 return;
             }
 
@@ -129,12 +127,6 @@ $("#btn-track").click(function (e) {
     c.send(null);
 });
 
-$(".dlt-site").click(() =>{
-    v = $(".dlt-site").data('id');
-    $('#'+v).fadeOut();
-    ref(db, 'sitetracker/sites/').child(v).remove();
-});
-
 var setSiteHistory = () => {
     get(query(ref(db, 'sitetracker/sites/'), ...[orderByChild("email"), equalTo(user.email)]))
     .then((snapshot)=>{
@@ -142,7 +134,12 @@ var setSiteHistory = () => {
             $("#usr-hist").html("");
             snapshot.forEach(p => {
                 var e = p.val();
-                $("#usr-hist").append('<li class="list-group-item d-flex justify-content-between" id="'+p.key+'" ><span class="">'+e.url+'</span><div><span class="badge bg-primary">Checked '+showtimeago(e.t)+'</span> &nbsp;<a href="#" id="dlt-site" data-id='+p.key+'><i class="fa fa-remove" style="color:red;"></i></a></div></li>');
+                $("#usr-hist").append('<li class="list-group-item d-flex justify-content-between" id="'+p.key+'" ><span class="">'+e.url+'</span><div><span class="badge '+((e.t)? 'bg-primary">Checked '+showtimeago(e.t) : 'bg-secondary">Queued')+'</span> &nbsp;<a href="#"><i class="fa fa-remove" alt="Remove site" id=btn'+p.key+' style="color:red;"></i></a></div></li>');
+                $("#btn"+p.key).on("click", () =>{
+                    var v = p.key;
+                    remove(ref(db, 'sitetracker/sites/'+v));
+                    setSiteHistory();
+                });
             });
             $(".load-bar").fadeOut({
                 complete:()=>{
@@ -154,3 +151,9 @@ var setSiteHistory = () => {
         }
     });
 };
+
+$('#modal-ss').on('hide.bs.modal', function (e) {
+    $(".hist-bar-cnt").fadeIn();
+    $("#inp-url").val("");
+    setSiteHistory();
+});
