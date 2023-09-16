@@ -1,0 +1,65 @@
+body{
+    display: flex;
+    height: 100vh;
+    background: url("../img/liquid-cheese.svg");
+    background-repeat: repeat;
+    animation: gradientBG 15s ease infinite;
+    background-size: 200%;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+.dsv {
+    background-color: rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 1rem;
+}
+.load-bar{
+    padding: 10px;
+}
+.user-bar {
+    padding: 30px;
+    margin-left: auto;
+    margin-right: 10px;
+    
+}
+
+.logo-bar {
+    padding: 30px;
+    margin-left: 10px;
+}
+
+.shake{
+    animation: shake 300ms;
+    animation-iteration-count: 2;
+}
+
+@keyframes shake{
+    25%{transform:translateX(4px)}
+    50%{transform:translateX(-4px)}
+    75%{transform:translateX(4px)}
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%;}
+    50% { background-position: 100% 50%;}
+    100% { background-position: 0% 50%;}
+}
+
+@-moz-keyframes gradientBG {
+    0% { background-position: 0% 50%;}
+    50% { background-position: 100% 50%;}
+    100% { background-position: 0% 50%;}
+}
