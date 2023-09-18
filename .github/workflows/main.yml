@@ -9,12 +9,15 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - uses: actions/checkout@v3
+        with:
+          working-directory: /home/runner/work/sitetracker/sitetracker/cron
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           cache: 'npm'
+          working-directory: /home/runner/work/sitetracker/sitetracker/cron
       - run: npm install
-        working-directory: cron
+        working-directory: /home/runner/work/sitetracker/sitetracker/cron
       - name: Run script
         run: npm start
-        working-directory: cron
+        working-directory: /home/runner/work/sitetracker/sitetracker/cron
