@@ -13,16 +13,11 @@ body{
     font-family: 'Montserrat';
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-height: 100vw) {
     body{
-        display: flex;
-        height: 100vh;
-        background: url("../img/liquid-cheese.svg");
-        background-size: 200%;
-        -webkit-backdrop-filter: blur(8px);
-        backdrop-filter: blur(8px);
-    
-        font-family: 'Montserrat';
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: none;
     }
   }
 
