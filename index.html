@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
     <title>Site Tracker</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+
+  <div class="modal fade" id="modal-load" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <i class="fa fa-gear fa-spin"></i>&nbsp; Waiting for signin ...
+            </div>
+        </div>
+    </div>
+</div>
 
   <div class="modal fade" id="modal-ss" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
@@ -56,7 +67,7 @@
         <div class="mb-3">
           <label for="" class="text-white form-label"><i>Enter the website's URL to track</i></label>
           <div class="form-group" style="display: flex;">
-            <input type="url" class="form-control" name="inp-url" id="inp-url" placeholder="example.com">
+            <input type="url" class="form-control" name="inp-url" id="inp-url" placeholder="https://example.com">
             <div class="input-group-append">
                 <button class="btn btn-success"  id="btn-track" type="submit">Track</button>
             </div>
@@ -90,16 +101,6 @@
           Made with 💖 by CLP
         </div>
       </div>
-    </div>
-
-    <div class="modal fade" id="modal-load" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <i class="fa fa-gear fa-spin"></i>&nbsp; Waiting for signin ...
-                </div>
-            </div>
-        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
