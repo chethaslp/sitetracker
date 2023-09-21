@@ -18,9 +18,11 @@ jobs:
           cache: 'npm'
           cache-dependency-path: cron/package-lock.json
       - run: npm install
+      - name: Create .env
+        run: |
+          touch .env
+          echo FB_CONFIG=${{ secrets.FB_CONFIG }} >> .env
+          echo EM_ID=${{ secrets.EM_ID }} >> .env
+          echo EM_PW=${{ secrets.EM_PW }} >> .env
       - name: Run script
         run: npm start
-        env:
-          FB_CONFIG: ${{ secrets.FB_CONFIG }}
-          EM_ID: ${{ secrets.EM_ID }}
-          EM_PW: ${{ secrets.EM_PW }}
