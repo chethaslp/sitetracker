@@ -1,5 +1,4 @@
-
-  <h1><p align="center">Sitetracker</p></h1>
+<p align="center"><img src="https://raw.githubusercontent.com/chethaslp/sitetracker/main/Screenshots/title.png"/></p>
   
 ## Usage
 Remember when you constanly had to look for updates in a site with important informations. It probably don't have notification/email-to-you feature. In this situation, Sitetracker is what you could use. Sitetracker checks for updates in your site every hour and emails you about the change in the site, if found.
@@ -8,6 +7,8 @@ Remember when you constanly had to look for updates in a site with important inf
 
 ## Implementation
 Sitetracker has a cron background process which runs independent of the app . Sitetracker uses Firebase as Baas. Authentication is also handled by firebase.
+
+<img src ="https://raw.githubusercontent.com/chethaslp/sitetracker/main/Screenshots/1.png"/>
     
 #### Cron Process
   Sitetracker works all its magic in the backend cron job (currently deployed using github actions).
