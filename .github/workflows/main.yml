@@ -21,6 +21,6 @@ jobs:
       - name: Run script
         run: npm start
         env:
-          FB_CONFIG: ${{ env.FB_CONFIG }}
-          EM_ID: ${{ env.EM_ID }}
-          EM_PW: ${{ env.EM_PW }}
+          FB_CONFIG: ${{ secrets.FB_CONFIG }}
+          EM_ID: ${{ secrets.EM_ID }}
+          EM_PW: ${{ secrets.EM_PW }}
