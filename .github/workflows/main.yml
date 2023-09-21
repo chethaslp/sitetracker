@@ -20,3 +20,7 @@ jobs:
       - run: npm install
       - name: Run script
         run: npm start
+        env:
+          FB_CONFIG: ${{ env.FB_CONFIG }}
+          EM_ID: ${{ env.EM_ID }}
+          EM_PW: ${{ env.EM_PW }}
