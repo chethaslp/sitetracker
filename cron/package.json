@@ -4,13 +4,14 @@
   "description": "",
   "main": "cron.js",
   "scripts": {
-    "start":"node cron.js"
+    "start": "node cron.js"
   },
   "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.5.0",
+    "dotenv": "^16.3.1",
     "firebase": "^10.3.1",
     "nodemailer": "^6.9.5"
   }

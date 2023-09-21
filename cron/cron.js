@@ -3,26 +3,21 @@ import { getDatabase, ref, child, set, get, remove, goOffline } from "firebase/d
 import { createTransport }  from 'nodemailer';
 import axios from "axios";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyCFe_50K0dDKtfPs7DT4UcODQcQpTqnYS0",
-    authDomain: "examerapp.firebaseapp.com",
-    databaseURL: "https://examerapp.firebaseio.com",
-    projectId: "examerapp",
-    storageBucket: "examerapp.appspot.com",
-    messagingSenderId: "616829474966",
-    appId: "1:616829474966:web:34955529ebd48a35ae0ab7",
-    measurementId: "G-C7PTK6XQEH"
-};
+import  { configDotenv } from "dotenv";
+
+configDotenv();
+if(!process.env.FB_CONFIG) throw new Error("Please set Firebase configs to continue.");
+
 var tr = createTransport({
   service: 'gmail',
   auth: {
-    user: 'host.lchethas@gmail.com', 
-    pass: 'emylybskljhnoezf'
+    user: process.env.EM_ID, 
+    pass: process.env.EM_PW
   }
 });
 var s = 0;
 
-var app = initializeApp(firebaseConfig);
+var app = initializeApp(JSON.parse(process.env.FB_CONFIG));
 const db = ref(getDatabase(), '/sitetracker/sites');
 
 // Function to terminate app when inactivity occurs
