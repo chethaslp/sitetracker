@@ -17,36 +17,33 @@ Sitetracker has a cron background process which runs independent of the app . Si
  [![Sitetracker Cron Workflow](https://github.com/chethaslp/sitetracker/actions/workflows/main.yml/badge.svg)](https://github.com/chethaslp/sitetracker/actions/workflows/main.yml)
 
 ## Development
-  * '/cron' has a backend server - needs to be separately.
-      
-    cd ./cron
-    npm start
-
-  Before executing, the following environmental variables should be set.
-
-    EM_ID: Email address for sending emails to clients (GMAIL is used currently)
-    [Feel free to change to any other SMTP server, if needed]
-
-    EM_PW: Your email authentication password
-    FB_CONFIG: BASE64 encoded string of firebase configuration object.
-  
-  [EM_PW]: For GMAIL, to bypass security constrains, follow this [post](https://support.google.com/accounts/answer/185833?hl=en) and create an app password.
-
-  [FB_CONFIG]: Get your project credentials for webapp from [firebase](https://console.firebase.google.com). You may get the credentials as javascript object.
-  ```
-    (IMPORTANT) Convert it to : 
-        JS Object           ->           JSON           ->     Base64
-    { apiKey: "dcer..... }  -> { "apiKey": "dcer..... } -> "cdwcff5445g..."
-  ```
-   
-  * For frontend,
+ * For frontend,
       Go to 'js/main.js', change the firebase config variable.
       Use
 
-        serve
-
+        serve .
    
+  * '/cron' has a backend server - needs to be run separately.
+      
+        cd ./cron
+        npm start
+
+    Before executing, the following environmental variables should be set.
+    ```
+      EM_ID: Email address for sending emails to clients (GMAIL is used currently)
+      [Feel free to change to any other SMTP server, if needed]
   
+      EM_PW: Your email authentication password
+      FB_CONFIG: BASE64 encoded string of firebase configuration object.
+    ```
+    [EM_PW]: For GMAIL, to bypass security constrains, follow this [post](https://support.google.com/accounts/answer/185833?hl=en) and create an app password.
+  
+    [FB_CONFIG]: Get your project credentials for webapp from [firebase](https://console.firebase.google.com). You may get the credentials as javascript object.
+    ```
+      (IMPORTANT) Convert it to : 
+          JS Object           ->           JSON           ->     Base64
+      { apiKey: "dcer..... }  -> { "apiKey": "dcer..... } -> "cdwcff5445g..."
+    ```
 
     
 ## TODO
