@@ -16,8 +16,8 @@ var tr = createTransport({
   }
 });
 var s = 0;
-console.log(process.env.FB_CONFIG);
-var app = initializeApp(JSON.parse(process.env.FB_CONFIG.replace("'",'')));
+
+var app = initializeApp(JSON.parse(Buffer.from(process.env.FB_CONFIG,'base64')));
 const db = ref(getDatabase(), '/sitetracker/sites');
 
 // Function to terminate app when inactivity occurs
