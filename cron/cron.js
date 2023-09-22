@@ -16,7 +16,7 @@ var tr = createTransport({
   }
 });
 var s = 0;
-
+console.log(process.env.FB_CONFIG);
 var app = initializeApp(JSON.parse(process.env.FB_CONFIG.replace("'",'')));
 const db = ref(getDatabase(), '/sitetracker/sites');
 
