@@ -17,6 +17,8 @@ Sitetracker has a cron background process which runs independent of the app . Si
  [![Sitetracker Cron Workflow](https://github.com/chethaslp/sitetracker/actions/workflows/main.yml/badge.svg)](https://github.com/chethaslp/sitetracker/actions/workflows/main.yml)
 
 ## Development
+    Get your project credentials for webapp from [firebase](https://console.firebase.google.com). You may get the credentials as javascript object.
+
  * For frontend,
       Go to 'js/main.js', change the firebase config variable.
       Use
@@ -34,16 +36,10 @@ Sitetracker has a cron background process which runs independent of the app . Si
       [Feel free to change to any other SMTP server, if needed]
   
       EM_PW: Your email authentication password
-      FB_CONFIG: BASE64 encoded string of firebase configuration object.
     ```
+    And change the firebase config variable in './cron/cron.js'
+    
     [EM_PW]: For GMAIL, to bypass security constrains, follow this [post](https://support.google.com/accounts/answer/185833?hl=en) and create an app password.
-  
-    [FB_CONFIG]: Get your project credentials for webapp from [firebase](https://console.firebase.google.com). You may get the credentials as javascript object.
-    ```
-      (IMPORTANT) Convert it to : 
-          JS Object           ->           JSON           ->     Base64
-      { apiKey: "dcer..... }  -> { "apiKey": "dcer..... } -> "cdwcff5445g..."
-    ```
 
     
 ## TODO

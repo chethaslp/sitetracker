@@ -6,7 +6,19 @@ import axios from "axios";
 import  { configDotenv } from "dotenv";
 
 configDotenv();
-if(!process.env.FB_CONFIG) throw new Error("Please set Firebase configs to continue.");
+if(!process.env.EM_ID) throw new Error("Please set env vars to continue.");
+
+// CHANGE THIS VARIABLE
+const firebaseConfig = {
+  apiKey: "AIzaSyCFe_50K0dDKtfPs7DT4UcODQcQpTqnYS0",
+  authDomain: "examerapp.firebaseapp.com",
+  databaseURL: "https://examerapp.firebaseio.com",
+  projectId: "examerapp",
+  storageBucket: "examerapp.appspot.com",
+  messagingSenderId: "616829474966",
+  appId: "1:616829474966:web:34955529ebd48a35ae0ab7",
+  measurementId: "G-C7PTK6XQEH"
+};
 
 var tr = createTransport({
   service: 'gmail',
@@ -17,7 +29,7 @@ var tr = createTransport({
 });
 var s = 0;
 
-var app = initializeApp(JSON.parse(Buffer.from(process.env.FB_CONFIG,'base64')));
+var app = initializeApp(firebaseConfig);
 const db = ref(getDatabase(), '/sitetracker/sites');
 
 // Function to terminate app when inactivity occurs
