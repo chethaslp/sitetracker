@@ -4,6 +4,8 @@ import { getDatabase, ref, push, get, query, orderByChild, equalTo, remove } fro
 import "https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js";
 import "https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js";
 import showtimeago from "./showtimeago.js";
+
+// CHANGE THIS VARIABLE
 const firebaseConfig = {
     apiKey: "AIzaSyCFe_50K0dDKtfPs7DT4UcODQcQpTqnYS0",
     authDomain: "examerapp.firebaseapp.com",
